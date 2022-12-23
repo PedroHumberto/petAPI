@@ -19,15 +19,16 @@ public class PetController : ControllerBase
     }
 
     [HttpPost]
-        public IActionResult AddCinema([FromBody] CreatePetDto petDto)
+        public IActionResult AddPet([FromBody] CreatePetDto petDto)
         {
             Pet pet = _mapper.Map<Pet>(petDto);
 
             _context.Pets.Add(pet);
             _context.SaveChanges();
-            return CreatedAtAction(nameof(GetPetById), new { Id = pet.Id }, pet); // "https://localhost:5000/Filmes/1"
+            return CreatedAtAction(nameof(GetPetById), new { Id = pet.Id }, pet); // "https://localhost:5000/Pets/1"
         }
-         [HttpGet("{id}")]
+
+        [HttpGet("{id}")]
         public IActionResult GetPetById(int id)
         {
             Pet pet = _context.Pets.FirstOrDefault(filme => filme.Id == id);
