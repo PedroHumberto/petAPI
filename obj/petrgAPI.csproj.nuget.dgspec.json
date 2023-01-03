@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\Programming\\ASP.NET\\PETRG\\petrgAPI\\petrgAPI.csproj": {}
+    "D:\\Programming\\ASP.NET\\PETRG\\petrgAPI\\petrgAPI.csproj": {}
   },
   "projects": {
-    "d:\\Programming\\ASP.NET\\PETRG\\petrgAPI\\petrgAPI.csproj": {
+    "D:\\Programming\\ASP.NET\\PETRG\\petrgAPI\\petrgAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\Programming\\ASP.NET\\PETRG\\petrgAPI\\petrgAPI.csproj",
+        "projectUniqueName": "D:\\Programming\\ASP.NET\\PETRG\\petrgAPI\\petrgAPI.csproj",
         "projectName": "petrgAPI",
-        "projectPath": "d:\\Programming\\ASP.NET\\PETRG\\petrgAPI\\petrgAPI.csproj",
+        "projectPath": "D:\\Programming\\ASP.NET\\PETRG\\petrgAPI\\petrgAPI.csproj",
         "packagesPath": "C:\\Users\\pedro\\.nuget\\packages\\",
-        "outputPath": "d:\\Programming\\ASP.NET\\PETRG\\petrgAPI\\obj\\",
+        "outputPath": "D:\\Programming\\ASP.NET\\PETRG\\petrgAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\pedro\\AppData\\Roaming\\NuGet\\NuGet.Config",
