@@ -1,5 +1,6 @@
 
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 using petrgAPI.Models;
 
 namespace petrgAPI.Data.Dto.PetDto
@@ -10,7 +11,6 @@ namespace petrgAPI.Data.Dto.PetDto
         public DateTime PetBirthDay { get; set; }
         public string PetBreed {get; set; }
         public int PetGuardianId { get; set; }
-        public virtual PetGuardian PetGuardian {get; set;}
 
     }
 }

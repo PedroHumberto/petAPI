@@ -1,14 +1,8 @@
+using petrgAPI.Models;
 
-using System.ComponentModel.DataAnnotations;
-using System.Text.Json.Serialization;
-
-namespace petrgAPI.Models
-{
-    public class Address{
-        [Key]
-        [Required]
-        public int Id { get; set; }
-        [Required]
+namespace petrgAPI.Data.Dto.AddressDto{
+    public class ReadAddressDto{
+      
         public string Country { get; set; }
         public string State { get; set; }
         public string City { get; set; }

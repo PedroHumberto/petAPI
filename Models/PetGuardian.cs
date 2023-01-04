@@ -1,5 +1,7 @@
 
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace petrgAPI.Models
 {
@@ -9,6 +11,8 @@ namespace petrgAPI.Models
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }
+
+        [ForeignKey(nameof(Address))]
         public int AddresId { get; set; }
         public string phoneNumber {get; set;}
         public virtual Address Address {get; set; }

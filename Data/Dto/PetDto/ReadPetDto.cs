@@ -10,7 +10,6 @@ namespace petrgAPI.Data.Dto.PetDto
         public DateTime PetBirthDay { get; set; }
         public string PetBreed {get; set; }
         public int PetGuardianId { get; set; }
-        public virtual PetGuardian PetGuardian {get; set;}
-
+        public PetGuardian PetGuardian {get; set;}
     }
 }

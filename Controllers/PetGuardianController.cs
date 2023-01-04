@@ -1,7 +1,6 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using petrgAPI.Data;
-using petrgAPI.Data.Dto.PetDto;
 using petrgAPI.Data.Dto.PetGuardianDto;
 using petrgAPI.Models;
 

@@ -7,8 +7,8 @@ namespace petrgAPI.Data.Dto.PetGuardianDto
     {
         public string Name { get; set; }
         public int AddresId { get; set; }
+        public Address address { get; set; }
         public string phoneNumber { get; set; }
-        public virtual Address Address { get; set; }
-        public virtual List<Pet> Pets { get; set; }
+        public object Pets { get; set; }
     }
 }
