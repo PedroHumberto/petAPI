@@ -12,8 +12,8 @@ using petrgAPI.Data;
 namespace petrgAPI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230104003448_MigrationsCorrections")]
-    partial class MigrationsCorrections
+    [Migration("20230104023929_FirstMigration")]
+    partial class FirstMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

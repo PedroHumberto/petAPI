@@ -13,6 +13,8 @@ namespace petrgAPI.Models
         public string State { get; set; }
         public string City { get; set; }
         public string Street { get; set; }
+        
+        [JsonIgnore]
         public virtual PetGuardian PetGuardian {get; set;}
     }
 }

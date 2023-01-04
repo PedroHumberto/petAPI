@@ -19,6 +19,16 @@ public class PetGuardianController : ControllerBase
         _mapper = mapper;
     }
 
+    [HttpGet]
+    public IActionResult GetPetGuardians()
+    {
+        List<PetGuardian> petGuardian = _context.PetGuardians.ToList();
+
+        List<ReadPetGuardianDto> petGuardianDto = _mapper.Map<List<ReadPetGuardianDto>>(petGuardian);
+
+        return Ok(petGuardianDto);
+    }
+
     [HttpPost]
     public async Task<IActionResult> AddPetGuardian([FromBody] CreatePetGuardianDto petGuardianDto)
     {
@@ -28,6 +38,7 @@ public class PetGuardianController : ControllerBase
         await _context.SaveChangesAsync();
         return CreatedAtAction(nameof(GetPetGuardianById), new { Id = petGuardian.Id }, petGuardian); // "https://localhost:5000/Pets/1"
     }
+
 
     [HttpGet("{id}")]
     public IActionResult GetPetGuardianById(int id)

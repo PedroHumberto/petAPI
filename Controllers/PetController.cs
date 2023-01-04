@@ -19,6 +19,16 @@ public class PetController : ControllerBase
         _mapper = mapper;
     }
 
+    [HttpGet]
+    public IActionResult GetPets()
+    {
+        List<Pet> pets = _context.Pets.ToList();
+
+        List<ReadPetDto> petDto = _mapper.Map<List<ReadPetDto>>(pets);
+
+        return Ok(petDto);
+    }
+
     [HttpPost]
     public async Task<IActionResult> AddPet([FromBody] CreatePetDto petDto)
     {

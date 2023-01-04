@@ -20,6 +20,16 @@ public class AddressController : ControllerBase
         _mapper = mapper;
     }
 
+    [HttpGet]
+    public async Task<IActionResult> GetAddress()
+    {
+        List<Address> addresses = _context.Addresses.ToList();
+
+        List<ReadAddressDto> addressDto = _mapper.Map<List<ReadAddressDto>>(addresses);
+
+        return Ok(addressDto);
+    }
+
     [HttpPost]
     public async Task<IActionResult> AddAddress([FromBody] CreateAddressDto addressDto)
     {
@@ -45,6 +55,7 @@ public class AddressController : ControllerBase
             return NotFound();
         }
     }
+
 
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteAddress(int id)
