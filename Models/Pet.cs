@@ -12,6 +12,8 @@ namespace petrgAPI.Models
         public string PetName { get; set; }
         public DateTime PetBirthDay { get; set; }
         public string PetBreed {get; set; }
+        
+        [JsonIgnore]
         public int PetGuardianId { get; set; }
         [JsonIgnore]
         public virtual PetGuardian PetGuardian {get; set;}

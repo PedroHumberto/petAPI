@@ -78,3 +78,8 @@ D:\Programming\ASP.NET\PETRG\petrgAPI\obj\Debug\net7.0\refint\petrgAPI.dll
 D:\Programming\ASP.NET\PETRG\petrgAPI\obj\Debug\net7.0\petrgAPI.pdb
 D:\Programming\ASP.NET\PETRG\petrgAPI\obj\Debug\net7.0\petrgAPI.genruntimeconfig.cache
 D:\Programming\ASP.NET\PETRG\petrgAPI\obj\Debug\net7.0\ref\petrgAPI.dll
+D:\Programming\ASP.NET\PETRG\petrgAPI\bin\Debug\net7.0\Microsoft.AspNetCore.JsonPatch.dll
+D:\Programming\ASP.NET\PETRG\petrgAPI\bin\Debug\net7.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+D:\Programming\ASP.NET\PETRG\petrgAPI\bin\Debug\net7.0\Newtonsoft.Json.dll
+D:\Programming\ASP.NET\PETRG\petrgAPI\bin\Debug\net7.0\Newtonsoft.Json.Bson.dll
+D:\Programming\ASP.NET\PETRG\petrgAPI\bin\Debug\net7.0\FluentResults.dll

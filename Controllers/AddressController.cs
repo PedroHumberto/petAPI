@@ -1,9 +1,11 @@
 using AutoMapper;
+using FluentResults;
 using Microsoft.AspNetCore.Mvc;
 using petrgAPI.Data;
 using petrgAPI.Data.Dto.AddressDto;
 using petrgAPI.Data.Dto.PetGuardianDto;
 using petrgAPI.Models;
+using petrgAPI.Services;
 
 namespace petrgAPI.Controllers;
 
@@ -11,44 +13,35 @@ namespace petrgAPI.Controllers;
 [Route("[controller]")]
 public class AddressController : ControllerBase
 {
-    private AppDbContext _context;
-    private IMapper _mapper;
 
-    public AddressController(AppDbContext context, IMapper mapper)
+    private AddressService _addressService;
+    public AddressController(AddressService addressService)
     {
-        _context = context;
-        _mapper = mapper;
+        _addressService = addressService;
     }
 
     [HttpGet]
-    public async Task<IActionResult> GetAddress()
+    public IActionResult GetAddress()
     {
-        List<Address> addresses = _context.Addresses.ToList();
-
-        List<ReadAddressDto> addressDto = _mapper.Map<List<ReadAddressDto>>(addresses);
-
-        return Ok(addressDto);
+        List<ReadAddressDto> allAddresses =_addressService.GetAll();
+        return Ok(allAddresses);
     }
 
     [HttpPost]
     public async Task<IActionResult> AddAddress([FromBody] CreateAddressDto addressDto)
     {
-        Address address = _mapper.Map<Address>(addressDto);
-
-        _context.Addresses.Add(address);
-        await _context.SaveChangesAsync();
-        return CreatedAtAction(nameof(GetAddressById), new { Id = address.Id }, address); // "https://localhost:5000/Pets/1"
+        Task<ReadAddressDto> readDto =_addressService.AddAddressAsync(addressDto);  
+        return CreatedAtAction(nameof(GetAddressById), new { Id = readDto.Id }, await readDto); // "https://localhost:5000/Pets/1"
     }
 
     [HttpGet("{id}")]
     public IActionResult GetAddressById(int id)
     {
-        Address address = _context.Addresses.FirstOrDefault(address => address.Id == id);
-        if (address != null)
+        ReadAddressDto readDto = _addressService.getById(id);
+        
+        if (readDto != null)
         {
-            ReadAddressDto addressDto = _mapper.Map<ReadAddressDto>(address);
-
-            return Ok(addressDto);
+            return Ok(readDto);
         }
         else
         {
@@ -58,21 +51,11 @@ public class AddressController : ControllerBase
 
 
     [HttpDelete("{id}")]
-    public async Task<IActionResult> DeleteAddress(int id)
+    public IActionResult DeleteAddress(int id)
     {
-        Address address = _context.Addresses.FirstOrDefault(address => address.Id == id);
-        if (address != null)
-        {
-            _context.Remove(address);
-
-            await _context.SaveChangesAsync();
-
-            return NoContent();
-        }
-        else
-        {
-            return NotFound();
-        }
+        Task<Result> result = _addressService.Delete(id);
+        if (result.GetAwaiter().GetResult().IsFailed) return NotFound();
+        return NoContent();
     }
 
 

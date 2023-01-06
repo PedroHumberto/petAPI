@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using petrgAPI.Data;
+using petrgAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,9 +11,13 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//Depedency Injection
+builder.Services.AddScoped<AddressService, AddressService>();
+
 
 builder.Services.AddDbContext<AppDbContext>(opts => opts.UseLazyLoadingProxies().UseSqlServer(builder.Configuration.GetConnectionString("DbConnectionString")));
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 
 
 var app = builder.Build();

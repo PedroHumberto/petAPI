@@ -34,8 +34,8 @@ namespace petrgAPI.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    AddresId = table.Column<int>(type: "int", nullable: false),
-                    phoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    phoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    AddresId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
