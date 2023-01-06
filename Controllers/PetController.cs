@@ -1,8 +1,11 @@
 using AutoMapper;
+using FluentResults;
 using Microsoft.AspNetCore.Mvc;
 using petrgAPI.Data;
 using petrgAPI.Data.Dto.PetDto;
 using petrgAPI.Models;
+using petrgAPI.Services;
+using petrgAPI.Services.Interfaces;
 
 namespace petrgAPI.Controllers;
 
@@ -10,67 +13,46 @@ namespace petrgAPI.Controllers;
 [Route("[controller]")]
 public class PetController : ControllerBase
 {
-    private AppDbContext _context;
-    private IMapper _mapper;
 
-    public PetController(AppDbContext context, IMapper mapper)
+    private IPetService _petService;
+
+    public PetController(IPetService petService)
     {
-        _context = context;
-        _mapper = mapper;
+        _petService = petService;
     }
 
     [HttpGet]
     public IActionResult GetPets()
     {
-        List<Pet> pets = _context.Pets.ToList();
+        List<ReadPetDto> allPets = _petService.GetAll();
 
-        List<ReadPetDto> petDto = _mapper.Map<List<ReadPetDto>>(pets);
-
-        return Ok(petDto);
+        return Ok(allPets);
     }
 
     [HttpPost]
-    public async Task<IActionResult> AddPet([FromBody] CreatePetDto petDto)
+    public async Task<IActionResult> AddPet([FromBody] CreatePetDto creatDto)
     {
-        Pet pet = _mapper.Map<Pet>(petDto);
+        Task<ReadPetDto> readDto = _petService.AddPetAsync(creatDto);
 
-        _context.Pets.Add(pet);
-        await _context.SaveChangesAsync();
-        return CreatedAtAction(nameof(GetPetById), new { Id = pet.Id }, pet); // "https://localhost:5000/Pets/1"
+        return CreatedAtAction(nameof(GetPetById), new { Id = readDto.Id }, await readDto); // "https://localhost:5000/Pets/1"
     }
 
     [HttpGet("{id}")]
     public IActionResult GetPetById(int id)
     {
-        Pet pet = _context.Pets.FirstOrDefault(pet => pet.Id == id);
-        if (pet != null)
-        {
-            ReadPetDto petDto = _mapper.Map<ReadPetDto>(pet);
+        ReadPetDto readDto = _petService.getById(id);
+        if (readDto != null) return Ok(readDto);
 
-            return Ok(petDto);
-        }
-        else
-        {
-            return NotFound();
-        }
+        return NotFound();
+
     }
 
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeletePet(int id)
     {
-        Pet pet = _context.Pets.FirstOrDefault(pet => pet.Id == id);
-        if (pet != null)
-        {
-            _context.Remove(pet);
-
-            await _context.SaveChangesAsync();
-
-            return NoContent();
-        }
-        else
-        {
-            return NotFound();
-        }
+        Task<Result> result = _petService.Delete(id);
+        if(result.GetAwaiter().GetResult().IsFailed) return NotFound();
+        return NoContent();
     }
 
 

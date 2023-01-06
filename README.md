@@ -1,10 +1,3 @@
 
 
-## Data Relation
-
-Pet has a owner
-Owner has many pets
-
-
-Owner has address
-Addres has Owner
+Proximo -> Fazer os services de pet e petguardian.
