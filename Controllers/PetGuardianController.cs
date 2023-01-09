@@ -1,8 +1,10 @@
 using AutoMapper;
+using FluentResults;
 using Microsoft.AspNetCore.Mvc;
 using petrgAPI.Data;
 using petrgAPI.Data.Dto.PetGuardianDto;
 using petrgAPI.Models;
+using petrgAPI.Services;
 
 namespace petrgAPI.Controllers;
 
@@ -10,68 +12,48 @@ namespace petrgAPI.Controllers;
 [Route("[controller]")]
 public class PetGuardianController : ControllerBase
 {
-    private AppDbContext _context;
-    private IMapper _mapper;
+    private PetGuardianService _petGuardianService;
 
-    public PetGuardianController(AppDbContext context, IMapper mapper)
+
+    public PetGuardianController(PetGuardianService petGuardianService)
     {
-        _context = context;
-        _mapper = mapper;
+        _petGuardianService = petGuardianService;
     }
 
     [HttpGet]
     public IActionResult GetPetGuardians()
     {
-        List<PetGuardian> petGuardian = _context.PetGuardians.ToList();
+        List<ReadPetGuardianDto> allPetGuardians = _petGuardianService.GetAll();
 
-        List<ReadPetGuardianDto> petGuardianDto = _mapper.Map<List<ReadPetGuardianDto>>(petGuardian);
-
-        return Ok(petGuardianDto);
+        return Ok(allPetGuardians);
     }
 
     [HttpPost]
     public async Task<IActionResult> AddPetGuardian([FromBody] CreatePetGuardianDto petGuardianDto)
     {
-        PetGuardian petGuardian = _mapper.Map<PetGuardian>(petGuardianDto);
-
-        _context.PetGuardians.Add(petGuardian);
-        await _context.SaveChangesAsync();
-        return CreatedAtAction(nameof(GetPetGuardianById), new { Id = petGuardian.Id }, petGuardian); // "https://localhost:5000/Pets/1"
+        Task<ReadPetGuardianDto> readDto = _petGuardianService.AddPetGuardianAsync(petGuardianDto);
+        return CreatedAtAction(nameof(GetPetGuardianById), new { Id = readDto.Id }, await readDto); // "https://localhost:5000/Pets/1"
     }
 
 
     [HttpGet("{id}")]
     public IActionResult GetPetGuardianById(int id)
     {
-        PetGuardian petGuardian = _context.PetGuardians.FirstOrDefault(petGuardian => petGuardian.Id == id);
-        if (petGuardian != null)
-        {
-            ReadPetGuardianDto petGuardianDto = _mapper.Map<ReadPetGuardianDto>(petGuardian);
+        ReadPetGuardianDto readDto = _petGuardianService.getById(id);
 
-            return Ok(petGuardianDto);
-        }
-        else
-        {
-            return NotFound();
-        }
+        if (readDto != null) return Ok(readDto);
+
+        return NotFound();
+
     }
 
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeletePetGuardian(int id)
     {
-        PetGuardian petGuardian = _context.PetGuardians.FirstOrDefault(petGuardian => petGuardian.Id == id);
-        if (petGuardian != null)
-        {
-            _context.Remove(petGuardian);
+        Task<Result> result = _petGuardianService.Delete(id);
+        if (result.GetAwaiter().GetResult().IsFailed) return NotFound();
 
-            await _context.SaveChangesAsync();
-
-            return NoContent();
-        }
-        else
-        {
-            return NotFound();
-        }
+        return NoContent();
     }
 
 
