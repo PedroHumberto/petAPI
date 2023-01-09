@@ -14,6 +14,7 @@ builder.Services.AddSwaggerGen();
 
 //Depedency Injection
 builder.Services.AddScoped<AddressService, AddressService>();
+builder.Services.AddScoped<PetGuardianService, PetGuardianService>();
 builder.Services.AddScoped<IPetService, PetService>();
 
 
