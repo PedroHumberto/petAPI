@@ -21,7 +21,8 @@ namespace petrgAPI.Data{
             builder.Entity<Address>()
             .HasOne(addres => addres.PetGuardian)
             .WithOne(petGuardian => petGuardian.Address)
-            .HasForeignKey<PetGuardian>(petGuardian => petGuardian.AddresId);
+            .HasForeignKey<PetGuardian>(petGuardian => petGuardian.AddresId)
+            .OnDelete(DeleteBehavior.SetNull);
 
         }
 

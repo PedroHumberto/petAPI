@@ -14,6 +14,6 @@ namespace petrgAPI.Models
         public string City { get; set; }
         public string Street { get; set; }
         [JsonIgnore]
-        public virtual PetGuardian PetGuardian {get; set;}
+        public virtual PetGuardian PetGuardian {get; set;} 
     }
 }

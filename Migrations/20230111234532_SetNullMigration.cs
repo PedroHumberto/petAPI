@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace petrgAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class FirstMigration : Migration
+    public partial class SetNullMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -35,7 +35,7 @@ namespace petrgAPI.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     phoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    AddresId = table.Column<int>(type: "int", nullable: false)
+                    AddresId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -45,7 +45,7 @@ namespace petrgAPI.Migrations
                         column: x => x.AddresId,
                         principalTable: "Addresses",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.SetNull);
                 });
 
             migrationBuilder.CreateTable(
@@ -74,7 +74,8 @@ namespace petrgAPI.Migrations
                 name: "IX_PetGuardians_AddresId",
                 table: "PetGuardians",
                 column: "AddresId",
-                unique: true);
+                unique: true,
+                filter: "[AddresId] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Pets_PetGuardianId",

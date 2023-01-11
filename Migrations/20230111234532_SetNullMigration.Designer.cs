@@ -12,8 +12,8 @@ using petrgAPI.Data;
 namespace petrgAPI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230106004031_FirstMigration")]
-    partial class FirstMigration
+    [Migration("20230111234532_SetNullMigration")]
+    partial class SetNullMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -94,7 +94,7 @@ namespace petrgAPI.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("AddresId")
+                    b.Property<int?>("AddresId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -108,7 +108,8 @@ namespace petrgAPI.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("AddresId")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[AddresId] IS NOT NULL");
 
                     b.ToTable("PetGuardians");
                 });
@@ -129,8 +130,7 @@ namespace petrgAPI.Migrations
                     b.HasOne("petrgAPI.Models.Address", "Address")
                         .WithOne("PetGuardian")
                         .HasForeignKey("petrgAPI.Models.PetGuardian", "AddresId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.Navigation("Address");
                 });

@@ -16,7 +16,7 @@ namespace petrgAPI.Models
         public string phoneNumber { get; set; }
         public virtual Address Address { get; set; }
         [JsonIgnore]
-        public int AddresId { get; set; }
+        public int? AddresId { get; set; }
         [JsonIgnore]
         public virtual List<Pet> Pets { get; set; }
     }
