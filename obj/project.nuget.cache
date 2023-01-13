@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "KJcvyOdZDq6MvbOfdUokKYL0FZ3J/kH6U6VA1/hLj7jVQHLx2lI+ufvuC//FdwugcwUPyNxtEDMoa4Ob3BUykw==",
+  "dgSpecHash": "70LmDgXpdjKAE2RI8PmpCM2K+yFulWUaI9zL4PTlkCDXxqUeXDUKIN8fJ63M0i/Jlhxobaxf5hc4JY6UMzsoqw==",
   "success": true,
   "projectFilePath": "d:\\Programming\\ASP.NET\\PETRG\\PetRGTest\\PetRGTest.csproj",
   "expectedPackageFiles": [
@@ -14,6 +14,7 @@
     "C:\\Users\\pedro\\.nuget\\packages\\emptyfiles\\2.8.0\\emptyfiles.2.8.0.nupkg.sha512",
     "C:\\Users\\pedro\\.nuget\\packages\\fluentresults\\3.15.1\\fluentresults.3.15.1.nupkg.sha512",
     "C:\\Users\\pedro\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\pedro\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.9\\microsoft.aspnet.webapi.client.5.2.9.nupkg.sha512",
     "C:\\Users\\pedro\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\7.0.1\\microsoft.aspnetcore.cryptography.internal.7.0.1.nupkg.sha512",
     "C:\\Users\\pedro\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\7.0.1\\microsoft.aspnetcore.cryptography.keyderivation.7.0.1.nupkg.sha512",
     "C:\\Users\\pedro\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\7.0.1\\microsoft.aspnetcore.identity.entityframeworkcore.7.0.1.nupkg.sha512",

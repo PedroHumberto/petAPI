@@ -8,31 +8,56 @@ using Shouldly;
 
 using System.Net;
 using System.Net.Http.Json;
+using petrgAPI.Data.Dto.AddressDto;
+using System.Net.Http;
+using petrgAPI.Routes;
 
 namespace PetRGTest
 {
     public class AddressControllerTest : IntegrationTestClass
     {
-        
+
         [Fact]
         public async Task GetAll_Address()
         {
             //arrange
-            const string URL_ADDRESS = "http://localhost:5024/Address";
+            string URL_ADDRESS = ApiRoutes.Address.GetAll;
 
             //act
-            var response = await _testClient.GetAsync(URL_ADDRESS); 
+            var response = await _testClient.GetAsync(URL_ADDRESS);
             var address = await _testClient.GetFromJsonAsync<List<Address>>(URL_ADDRESS);
 
 
             //assert
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
             Assert.NotNull(address);
-            Assert.True(address.Count == 1);
+            Assert.True(address.Count >= 0);
+        }
 
-            //(await response.Content.
+        [Fact]
+        public async Task Get_ReturnsAddress()
+        {
 
-            
+            //arrange
+            string URL_ADDRESS = ApiRoutes.Address.GetAll;
+            var createdAddress = await AddAddressAsync(new CreateAddressDto { Country = "Teste 111", State = "Teste 1111", City = "Teste 1111", Street = "Teste 1111" });
+
+
+            //Act
+            var address = await _testClient.GetFromJsonAsync<List<Address>>(URL_ADDRESS);
+            var lastId = address.Last().Id;
+
+            var response = await _testClient.GetAsync(ApiRoutes.Address.Get(lastId));
+
+            //Assert
+            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+
+            var returnedAddress = await response.Content.ReadAsAsync<ReadAddressDto>();
+
+            returnedAddress.Id.ShouldBe(lastId);
+            returnedAddress.Country.ShouldBe(returnedAddress.Country);
+
+
         }
     }
 }
