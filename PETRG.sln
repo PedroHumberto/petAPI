@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "petrgAPI", "petrgAPI\petrgAPI.csproj", "{64446318-C551-41ED-86B1-DFE442A643E7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UsersAPI", "UsersAPI\UsersAPI.csproj", "{F10EBEC3-8E88-4E8C-B769-406B7960A599}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "petrgAPITest", "petrgAPITest\petrgAPITest.csproj", "{4AE88E22-2351-407E-B4B7-7E1E6762750C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{64446318-C551-41ED-86B1-DFE442A643E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64446318-C551-41ED-86B1-DFE442A643E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64446318-C551-41ED-86B1-DFE442A643E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64446318-C551-41ED-86B1-DFE442A643E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F10EBEC3-8E88-4E8C-B769-406B7960A599}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F10EBEC3-8E88-4E8C-B769-406B7960A599}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F10EBEC3-8E88-4E8C-B769-406B7960A599}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F10EBEC3-8E88-4E8C-B769-406B7960A599}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AE88E22-2351-407E-B4B7-7E1E6762750C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AE88E22-2351-407E-B4B7-7E1E6762750C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AE88E22-2351-407E-B4B7-7E1E6762750C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AE88E22-2351-407E-B4B7-7E1E6762750C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {851CDDA8-947A-42E9-AD02-2AF439518899}
+	EndGlobalSection
+EndGlobal
