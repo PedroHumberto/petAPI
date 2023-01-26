@@ -13,11 +13,14 @@ namespace UsersAPI.Services
         IMapper _mapper;
         UserDbContext _context;
         UserManager<IdentityUser<int>> _userManager;
-        public SingUpService(IMapper mapper, UserDbContext context, UserManager<IdentityUser<int>> userManager)
+        private EmailService _emailService;
+
+        public SingUpService(IMapper mapper, UserDbContext context, UserManager<IdentityUser<int>> userManager, EmailService emailService)
         {
             _mapper = mapper;
             _context = context;
             _userManager = userManager;
+            _emailService = emailService;
         }
 
         public async Task<Result> SingUpUser(CreateUserDto createDto)
@@ -30,6 +33,7 @@ namespace UsersAPI.Services
             if (identityResult.Result.Succeeded)
             {
                 var code = await _userManager.GenerateEmailConfirmationTokenAsync(userIdentity);
+                _emailService.SendEmail(new[] {userIdentity.Email}, "Activation Link", userIdentity.Id, code);
                 return Result.Ok().WithSuccess(code);
             }
             return Result.Fail("SingUp Failed");
