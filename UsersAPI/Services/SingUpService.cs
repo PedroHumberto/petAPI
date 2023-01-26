@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using UsersApi.Models;
 using UsersAPI.Data;
 using UsersAPI.Data.Dto;
+using UsersAPI.Data.Requests;
 
 namespace UsersAPI.Services
 {
@@ -19,13 +20,29 @@ namespace UsersAPI.Services
             _userManager = userManager;
         }
 
-        public Result SingUpUser(CreateUserDto createDto)
+        public async Task<Result> SingUpUser(CreateUserDto createDto)
         {
             User user = _mapper.Map<User>(createDto);
             IdentityUser<int> userIdentity = _mapper.Map<IdentityUser<int>>(user);
-            Task<IdentityResult> identityResult = _userManager.CreateAsync(userIdentity, createDto.Password);
-            if(identityResult.Result.Succeeded) return Result.Ok();
+            Task<IdentityResult> identityResult = _userManager
+                .CreateAsync(userIdentity, createDto.Password);
+
+            if (identityResult.Result.Succeeded)
+            {
+                var code = await _userManager.GenerateEmailConfirmationTokenAsync(userIdentity);
+                return Result.Ok().WithSuccess(code);
+            }
             return Result.Fail("SingUp Failed");
+        }
+
+        public Result AccountActivation(ActiveAccountRequest request)
+        {
+            var IdentityUser = _userManager.Users.FirstOrDefault( user => user.Id == request.UserId);
+            var identityResult = _userManager.ConfirmEmailAsync(IdentityUser, request.ActivationCode).Result;
+            if(identityResult.Succeeded){
+                return Result.Ok();
+            }
+            return Result.Fail("Activation Failed");
         }
     }
 }

@@ -4990,11 +4990,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "d:\\Programming\\ASP.NET\\PETRG\\UsersAPI\\UsersAPI.csproj",
+      "projectUniqueName": "D:\\Programming\\ASP.NET\\PETRG\\UsersAPI\\UsersAPI.csproj",
       "projectName": "UsersAPI",
-      "projectPath": "d:\\Programming\\ASP.NET\\PETRG\\UsersAPI\\UsersAPI.csproj",
+      "projectPath": "D:\\Programming\\ASP.NET\\PETRG\\UsersAPI\\UsersAPI.csproj",
       "packagesPath": "C:\\Users\\pedro\\.nuget\\packages\\",
-      "outputPath": "d:\\Programming\\ASP.NET\\PETRG\\UsersAPI\\obj\\",
+      "outputPath": "D:\\Programming\\ASP.NET\\PETRG\\UsersAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\pedro\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5087,7 +5087,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

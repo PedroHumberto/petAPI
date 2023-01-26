@@ -19,8 +19,11 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddDbContext<UserDbContext>(opts => opts.UseSqlServer(builder.Configuration.GetConnectionString("UserConnection")));
 
 //Idenity
-builder.Services.AddIdentity<IdentityUser<int>, IdentityRole<int>>()
-    .AddEntityFrameworkStores<UserDbContext>();
+builder.Services.AddIdentity<IdentityUser<int>, IdentityRole<int>>(
+        opt => opt.SignIn.RequireConfirmedEmail = true
+    )
+    .AddEntityFrameworkStores<UserDbContext>()
+    .AddDefaultTokenProviders();
 
 builder.Services.Configure<IdentityOptions>(opts => {
     opts.Password.RequiredLength = 7;
