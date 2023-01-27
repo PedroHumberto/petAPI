@@ -6,10 +6,11 @@ using Microsoft.IdentityModel.Tokens;
 using petrgAPI.Data;
 using petrgAPI.Data.Dto.AddressDto;
 using petrgAPI.Models;
+using petrgAPI.Services.Interfaces;
 
 namespace petrgAPI.Services
 {
-    public class AddressService
+    public class AddressService : IAddressService
     {
         private AppDbContext _context;
         private IMapper _mapper;
@@ -45,7 +46,7 @@ namespace petrgAPI.Services
 
        
 
-        public async Task<ReadAddressDto> getById(int id)
+        public async Task<ReadAddressDto> getByIdAsync(int id)
         {
             Address address = await _context.Addresses.FirstOrDefaultAsync(address => address.Id == id);
             if (address != null)

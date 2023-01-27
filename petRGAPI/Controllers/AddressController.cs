@@ -7,6 +7,7 @@ using petrgAPI.Data.Dto.AddressDto;
 using petrgAPI.Data.Dto.PetGuardianDto;
 using petrgAPI.Models;
 using petrgAPI.Services;
+using petrgAPI.Services.Interfaces;
 
 namespace petrgAPI.Controllers;
 
@@ -15,8 +16,8 @@ namespace petrgAPI.Controllers;
 public class AddressController : ControllerBase
 {
 
-    private AddressService _addressService;
-    public AddressController(AddressService addressService)
+    private IAddressService _addressService;
+    public AddressController(IAddressService addressService)
     {
         _addressService = addressService;
     }
@@ -45,7 +46,7 @@ public class AddressController : ControllerBase
     [HttpGet("{id}")]
     public async Task<IActionResult> GetAddressById(int id)
     {
-        ReadAddressDto readDto = await _addressService.getById(id);
+        ReadAddressDto readDto = await _addressService.getByIdAsync(id);
         
         if (readDto != null)
         {
