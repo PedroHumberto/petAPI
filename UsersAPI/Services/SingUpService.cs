@@ -1,6 +1,7 @@
 using AutoMapper;
 using FluentResults;
 using Microsoft.AspNetCore.Identity;
+using System.Web;
 using UsersApi.Models;
 using UsersAPI.Data;
 using UsersAPI.Data.Dto;
@@ -33,7 +34,8 @@ namespace UsersAPI.Services
             if (identityResult.Result.Succeeded)
             {
                 var code = await _userManager.GenerateEmailConfirmationTokenAsync(userIdentity);
-                _emailService.SendEmail(new[] {userIdentity.Email}, "Activation Link", userIdentity.Id, code);
+                var encodedCode = HttpUtility.UrlEncode(code);
+                _emailService.SendEmail(new[] {userIdentity.Email}, "Activation Link", userIdentity.Id, encodedCode);
                 return Result.Ok().WithSuccess(code);
             }
             return Result.Fail("SingUp Failed");

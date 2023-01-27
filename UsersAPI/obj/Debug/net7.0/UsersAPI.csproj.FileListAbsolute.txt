@@ -84,3 +84,7 @@ D:\Programming\ASP.NET\PETRG\UsersAPI\obj\Debug\net7.0\UsersAPI.pdb
 D:\Programming\ASP.NET\PETRG\UsersAPI\obj\Debug\net7.0\UsersAPI.genruntimeconfig.cache
 D:\Programming\ASP.NET\PETRG\UsersAPI\obj\Debug\net7.0\ref\UsersAPI.dll
 D:\Programming\ASP.NET\PETRG\UsersAPI\bin\Debug\net7.0\FluentResults.dll
+D:\Programming\ASP.NET\PETRG\UsersAPI\bin\Debug\net7.0\MailKit.dll
+D:\Programming\ASP.NET\PETRG\UsersAPI\bin\Debug\net7.0\MimeKit.dll
+D:\Programming\ASP.NET\PETRG\UsersAPI\bin\Debug\net7.0\NETCore.MailKit.dll
+D:\Programming\ASP.NET\PETRG\UsersAPI\bin\Debug\net7.0\BouncyCastle.Crypto.dll

@@ -28,8 +28,8 @@ namespace UsersAPI.Controllers
 
             return Ok(emailToken);
         }
-        [HttpPost("/active")]
-        public IActionResult activeteAccountRequest(ActiveAccountRequest request){
+        [HttpGet("/active")]
+        public IActionResult activeteAccountRequest([FromQuery] ActiveAccountRequest request){
             Result result = _singUpService.AccountActivation(request);
             if (result.IsFailed) return StatusCode(500);
 
