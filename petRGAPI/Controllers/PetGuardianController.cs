@@ -42,7 +42,7 @@ public class PetGuardianController : ControllerBase
 
 
     [HttpGet("{id}")]
-    public Task<IActionResult> GetPetGuardianById(int id)
+    public async Task<IActionResult> GetPetGuardianById(int id)
     {
         ReadPetGuardianDto readDto = await _petGuardianService.getByIdAsync(id);
 

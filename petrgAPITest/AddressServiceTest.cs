@@ -23,7 +23,7 @@ namespace PetRGTest
     {
         
         [Fact]
-        public async Task Get_Empty_Database_ShouldThrow_Message()
+        public async Task Get_EmptyDatabase_ShouldThrow_Message()
         {
 
             //Arrange
@@ -34,8 +34,8 @@ namespace PetRGTest
             AddressService _testTarget = new AddressService(_context, _mapper);
 
             //Act
-            var erro = () => _testTarget.GetAll();
-            var message = Assert.Throws<Exception>(erro);
+            var erro = _testTarget.GetAllAsync;
+            var message = await Assert.ThrowsAsync<Exception>(erro);
 
             //Assert
             Assert.Equal("Empty Database", message.Message);
@@ -59,7 +59,7 @@ namespace PetRGTest
             await _testTarget.AddAddressAsync(new CreateAddressDto { City = "AASdasd 1", Country = "ASDASD 2", State = "ASaSDe 3", Street = "teste 4" });
             await _testTarget.AddAddressAsync(new CreateAddressDto { City = "teste 1", Country = "Teste 2", State = "Teste 3", Street = "teste 4" });
             await _testTarget.AddAddressAsync(new CreateAddressDto { City = "teste 1", Country = "Teste 2", State = "Teste 3", Street = "teste 4" });
-            var getAll = _testTarget.GetAll();
+            var getAll = await _testTarget.GetAllAsync();
 
             //Assert
             Assert.True(getAll.Count > 0);
@@ -70,7 +70,7 @@ namespace PetRGTest
         public async Task Post_AddressInDatabase_ShouldBe_TheLast_Id()
         {
             //Arrange
-            DbContextOptionsBuilder<AppDbContext> _optionsBuilder = new DbContextOptionsBuilder<AppDbContext>().UseInMemoryDatabase("TestDb");
+            DbContextOptionsBuilder<AppDbContext> _optionsBuilder = new DbContextOptionsBuilder<AppDbContext>().UseInMemoryDatabase("GetIdTestDb");
             AppDbContext _context = new AppDbContext(_optionsBuilder.Options);
             MapperConfiguration _config = new MapperConfiguration(cfg => cfg.AddProfile<AddressProfile>());
             IMapper _mapper = _config.CreateMapper();
@@ -78,10 +78,11 @@ namespace PetRGTest
 
             //Act
             var addAdress = await _testTarget.AddAddressAsync(new CreateAddressDto { City = "teste 1", Country = "Teste 2", State = "Teste 3", Street = "teste 4" });
-            var getLast = _testTarget.GetAll().Last();
-
+            var getAll = await _testTarget.GetAllAsync();
+            
+            
             //Assert
-            addAdress.Id.ShouldBe(getLast.Id);
+            addAdress.Id.ShouldBe(getAll.Last().Id);
 
         }
 

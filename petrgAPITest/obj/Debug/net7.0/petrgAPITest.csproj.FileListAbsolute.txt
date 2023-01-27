@@ -508,3 +508,4 @@ d:\Programming\ASP.NET\PETRG\petrgAPITest\obj\Debug\net7.0\petrgAPITest.dll
 d:\Programming\ASP.NET\PETRG\petrgAPITest\obj\Debug\net7.0\refint\petrgAPITest.dll
 d:\Programming\ASP.NET\PETRG\petrgAPITest\obj\Debug\net7.0\petrgAPITest.genruntimeconfig.cache
 d:\Programming\ASP.NET\PETRG\petrgAPITest\obj\Debug\net7.0\ref\petrgAPITest.dll
+D:\Programming\ASP.NET\PETRG\petrgAPITest\bin\Debug\net7.0\Moq.dll

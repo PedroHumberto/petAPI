@@ -39,7 +39,7 @@ namespace petrgAPI.Services
 
         }
 
-        public async Task<ReadPetGuardianDto> getById(int id)
+        public async Task<ReadPetGuardianDto> getByIdAsync(int id)
         {
             PetGuardian petGuardian = await _context.PetGuardians.FirstOrDefaultAsync(petGuardian => petGuardian.Id == id);
 
