@@ -22,9 +22,9 @@ public class PetController : ControllerBase
     }
 
     [HttpGet]
-    public IActionResult GetPets()
+    public async Task<IActionResult> GetAllPets()
     {
-        List<ReadPetDto> allPets = _petService.GetAll();
+        List<ReadPetDto> allPets = await _petService.GetAllAsync();
 
         return Ok(allPets);
     }
@@ -38,9 +38,9 @@ public class PetController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public IActionResult GetPetById(int id)
+    public async Task<IActionResult> GetPetById(int id)
     {
-        ReadPetDto readDto = _petService.getById(id);
+        ReadPetDto readDto = await _petService.getByIdAsync(id);
         if (readDto != null) return Ok(readDto);
 
         return NotFound();

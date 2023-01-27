@@ -1,6 +1,7 @@
 using AutoMapper;
 using FluentResults;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using petrgAPI.Data;
 using petrgAPI.Data.Dto.AddressDto;
 using petrgAPI.Data.Dto.PetGuardianDto;
@@ -21,9 +22,16 @@ public class AddressController : ControllerBase
     }
 
     [HttpGet]
-    public IActionResult GetAddresses()
+    public async Task<IActionResult> GetAddresses()
     {
-        List<ReadAddressDto> allAddresses =_addressService.GetAll();
+        List<ReadAddressDto> allAddresses = await _addressService.GetAllAsync();
+
+        if(allAddresses.IsNullOrEmpty())
+        {
+            return NotFound();
+        }
+
+
         return Ok(allAddresses);
     }
 
@@ -35,9 +43,9 @@ public class AddressController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public IActionResult GetAddressById(int id)
+    public async Task<IActionResult> GetAddressById(int id)
     {
-        ReadAddressDto readDto = _addressService.getById(id);
+        ReadAddressDto readDto = await _addressService.getById(id);
         
         if (readDto != null)
         {

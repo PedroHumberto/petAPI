@@ -2,6 +2,7 @@
 
 using AutoMapper;
 using FluentResults;
+using Microsoft.EntityFrameworkCore;
 using petrgAPI.Data;
 using petrgAPI.Data.Dto.PetGuardianDto;
 using petrgAPI.Models;
@@ -28,9 +29,9 @@ namespace petrgAPI.Services
             return _mapper.Map<ReadPetGuardianDto>(petGuardian);
         }
 
-        public List<ReadPetGuardianDto> GetAll()
+        public async Task<List<ReadPetGuardianDto>> GetAllAsync()
         {
-            List<PetGuardian> petGuardians = _context.PetGuardians.ToList();
+            List<PetGuardian> petGuardians = await _context.PetGuardians.ToListAsync();
 
             List<ReadPetGuardianDto> readDto = _mapper.Map<List<ReadPetGuardianDto>>(petGuardians);
 
@@ -38,9 +39,9 @@ namespace petrgAPI.Services
 
         }
 
-        public ReadPetGuardianDto getById(int id)
+        public async Task<ReadPetGuardianDto> getById(int id)
         {
-            PetGuardian petGuardian = _context.PetGuardians.FirstOrDefault(petGuardian => petGuardian.Id == id);
+            PetGuardian petGuardian = await _context.PetGuardians.FirstOrDefaultAsync(petGuardian => petGuardian.Id == id);
 
             if (petGuardian != null)
             {

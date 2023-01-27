@@ -1,6 +1,7 @@
 
 using AutoMapper;
 using FluentResults;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using petrgAPI.Data;
 using petrgAPI.Data.Dto.AddressDto;
@@ -19,10 +20,9 @@ namespace petrgAPI.Services
             _mapper = mapper;
         }
 
-        public List<ReadAddressDto> GetAll()
+        public async Task<List<ReadAddressDto>> GetAllAsync()
         {
-           
-                List<Address> addresses = _context.Addresses.ToList();
+                List<Address> addresses = await _context.Addresses.ToListAsync();
                 List<ReadAddressDto> addressDto = _mapper.Map<List<ReadAddressDto>>(addresses);
 
                 if (addresses.IsNullOrEmpty())
@@ -31,11 +31,6 @@ namespace petrgAPI.Services
                 }
 
                 return addressDto;
-
-           
-
-            
-
         }
 
         public async Task<ReadAddressDto> AddAddressAsync(CreateAddressDto addressDto)
@@ -50,9 +45,9 @@ namespace petrgAPI.Services
 
        
 
-        public ReadAddressDto getById(int id)
+        public async Task<ReadAddressDto> getById(int id)
         {
-            Address address = _context.Addresses.FirstOrDefault(address => address.Id == id);
+            Address address = await _context.Addresses.FirstOrDefaultAsync(address => address.Id == id);
             if (address != null)
             {
                 ReadAddressDto addressDto = _mapper.Map<ReadAddressDto>(address);

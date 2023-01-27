@@ -1,6 +1,7 @@
 using AutoMapper;
 using FluentResults;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using petrgAPI.Data;
 using petrgAPI.Data.Dto.PetGuardianDto;
 using petrgAPI.Models;
@@ -21,9 +22,13 @@ public class PetGuardianController : ControllerBase
     }
 
     [HttpGet]
-    public IActionResult GetPetGuardians()
+    public async Task<IActionResult> GetPetGuardians()
     {
-        List<ReadPetGuardianDto> allPetGuardians = _petGuardianService.GetAll();
+        List<ReadPetGuardianDto> allPetGuardians = await _petGuardianService.GetAllAsync();
+        if (allPetGuardians.IsNullOrEmpty())
+        {
+            return NotFound();
+        }
 
         return Ok(allPetGuardians);
     }
@@ -37,9 +42,9 @@ public class PetGuardianController : ControllerBase
 
 
     [HttpGet("{id}")]
-    public IActionResult GetPetGuardianById(int id)
+    public Task<IActionResult> GetPetGuardianById(int id)
     {
-        ReadPetGuardianDto readDto = _petGuardianService.getById(id);
+        ReadPetGuardianDto readDto = await _petGuardianService.getByIdAsync(id);
 
         if (readDto != null) return Ok(readDto);
 
