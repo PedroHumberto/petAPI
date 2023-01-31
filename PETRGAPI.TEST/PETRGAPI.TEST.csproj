@@ -29,7 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\petrgAPI\petrgAPI.csproj" />
+    <ProjectReference Include="..\petrgAPI\PETRGAPI.CORE.csproj" />
   </ItemGroup>
 
 </Project>
