@@ -5203,9 +5203,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Programming\\ASP.NET\\PETRG\\UsersAPI\\UsersAPI.csproj",
-      "projectName": "UsersAPI",
-      "projectPath": "D:\\Programming\\ASP.NET\\PETRG\\UsersAPI\\UsersAPI.csproj",
+      "projectUniqueName": "D:\\Programming\\ASP.NET\\PETRG\\UsersAPI\\PETRGAPI.USERS.csproj",
+      "projectName": "PETRGAPI.USERS",
+      "projectPath": "D:\\Programming\\ASP.NET\\PETRG\\UsersAPI\\PETRGAPI.USERS.csproj",
       "packagesPath": "C:\\Users\\pedro\\.nuget\\packages\\",
       "outputPath": "D:\\Programming\\ASP.NET\\PETRG\\UsersAPI\\obj\\",
       "projectStyle": "PackageReference",

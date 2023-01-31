@@ -4290,11 +4290,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "d:\\Programming\\ASP.NET\\PETRG\\petrgAPI\\petrgAPI.csproj",
-      "projectName": "petrgAPI",
-      "projectPath": "d:\\Programming\\ASP.NET\\PETRG\\petrgAPI\\petrgAPI.csproj",
+      "projectUniqueName": "D:\\Programming\\ASP.NET\\PETRG\\petrgAPI\\PETRGAPI.CORE.csproj",
+      "projectName": "PETRGAPI.CORE",
+      "projectPath": "D:\\Programming\\ASP.NET\\PETRG\\petrgAPI\\PETRGAPI.CORE.csproj",
       "packagesPath": "C:\\Users\\pedro\\.nuget\\packages\\",
-      "outputPath": "d:\\Programming\\ASP.NET\\PETRG\\petrgAPI\\obj\\",
+      "outputPath": "D:\\Programming\\ASP.NET\\PETRG\\petrgAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\pedro\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -19,7 +19,7 @@ namespace petrgAPITest
         public async Task Get_OnSuccess_ReturnsStatusCode200()
         {
             //Arrange
-            DbContextOptionsBuilder<AppDbContext> _optionsBuilder = new DbContextOptionsBuilder<AppDbContext>().UseInMemoryDatabase("TestDb");
+            DbContextOptionsBuilder<AppDbContext> _optionsBuilder = new DbContextOptionsBuilder<AppDbContext>().UseInMemoryDatabase("ControllerTestDb");
             AppDbContext _context = new AppDbContext(_optionsBuilder.Options);
             MapperConfiguration _config = new MapperConfiguration(cfg => cfg.AddProfile<AddressProfile>());
             IMapper _mapper = _config.CreateMapper();

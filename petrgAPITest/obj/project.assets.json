@@ -3493,7 +3493,7 @@
           "build/netcoreapp3.1/xunit.runner.visualstudio.props": {}
         }
       },
-      "petrgAPI/1.0.0": {
+      "PETRGAPI.CORE/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
@@ -3509,10 +3509,10 @@
           "Swashbuckle.AspNetCore": "6.4.0"
         },
         "compile": {
-          "bin/placeholder/petrgAPI.dll": {}
+          "bin/placeholder/PETRGAPI.CORE.dll": {}
         },
         "runtime": {
-          "bin/placeholder/petrgAPI.dll": {}
+          "bin/placeholder/PETRGAPI.CORE.dll": {}
         },
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
@@ -10207,10 +10207,10 @@
         "xunit.runner.visualstudio.nuspec"
       ]
     },
-    "petrgAPI/1.0.0": {
+    "PETRGAPI.CORE/1.0.0": {
       "type": "project",
-      "path": "../petrgAPI/petrgAPI.csproj",
-      "msbuildProject": "../petrgAPI/petrgAPI.csproj"
+      "path": "../petrgAPI/PETRGAPI.CORE.csproj",
+      "msbuildProject": "../petrgAPI/PETRGAPI.CORE.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -10221,9 +10221,9 @@
       "Microsoft.EntityFrameworkCore.InMemory >= 7.0.2",
       "Microsoft.NET.Test.Sdk >= 17.4.1",
       "Moq >= 4.18.4",
+      "PETRGAPI.CORE >= 1.0.0",
       "Shouldly >= 4.1.0",
       "coverlet.collector >= 3.2.0",
-      "petrgAPI >= 1.0.0",
       "xunit >= 2.4.2",
       "xunit.runner.visualstudio >= 2.4.5"
     ]
@@ -10234,9 +10234,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Programming\\ASP.NET\\PETRG\\petrgAPITest\\petrgAPITest.csproj",
-      "projectName": "petrgAPITest",
-      "projectPath": "D:\\Programming\\ASP.NET\\PETRG\\petrgAPITest\\petrgAPITest.csproj",
+      "projectUniqueName": "D:\\Programming\\ASP.NET\\PETRG\\petrgAPITest\\PETRGAPI.TEST.csproj",
+      "projectName": "PETRGAPI.TEST",
+      "projectPath": "D:\\Programming\\ASP.NET\\PETRG\\petrgAPITest\\PETRGAPI.TEST.csproj",
       "packagesPath": "C:\\Users\\pedro\\.nuget\\packages\\",
       "outputPath": "D:\\Programming\\ASP.NET\\PETRG\\petrgAPITest\\obj\\",
       "projectStyle": "PackageReference",
@@ -10255,8 +10255,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "D:\\Programming\\ASP.NET\\PETRG\\petrgAPI\\petrgAPI.csproj": {
-              "projectPath": "D:\\Programming\\ASP.NET\\PETRG\\petrgAPI\\petrgAPI.csproj"
+            "D:\\Programming\\ASP.NET\\PETRG\\petrgAPI\\PETRGAPI.CORE.csproj": {
+              "projectPath": "D:\\Programming\\ASP.NET\\PETRG\\petrgAPI\\PETRGAPI.CORE.csproj"
             }
           }
         }

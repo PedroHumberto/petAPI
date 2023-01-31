@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mpr/Db4NGU4M8Fg1P641a1kIOiNfFr27CL4Cs04v4fgUrg3lVwHUGuCnBsmU+H65Cdl9gps/KJujNKXqU1UTwQ==",
+  "dgSpecHash": "3UidEIU15h/aJ2rToGwaQWBMkU6HBEtJwKqqCtlFxKEqijYEuYQz6CPoRCGSONLlRXKvWIjwyF7xII4QD3WqQQ==",
   "success": true,
-  "projectFilePath": "D:\\Programming\\ASP.NET\\PETRG\\petrgAPITest\\petrgAPITest.csproj",
+  "projectFilePath": "D:\\Programming\\ASP.NET\\PETRG\\petrgAPITest\\PETRGAPI.TEST.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pedro\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\pedro\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
