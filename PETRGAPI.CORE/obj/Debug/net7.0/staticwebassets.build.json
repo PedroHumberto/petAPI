@@ -1,8 +1,8 @@
 {
   "Version": 1,
-  "Hash": "yVmBGryHeIy06Q2+fafpI2wbtXKdZAJWMvBbJryc0Vw=",
-  "Source": "petrgAPI",
-  "BasePath": "_content/petrgAPI",
+  "Hash": "vZherIS9tYMEbSHfuwJaxRxa0XAvg0LYD0rJCU6nWVw=",
+  "Source": "PETRGAPI.CORE",
+  "BasePath": "_content/PETRGAPI.CORE",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],

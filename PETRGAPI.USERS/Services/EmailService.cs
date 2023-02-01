@@ -17,7 +17,7 @@ namespace UsersAPI.Services
             _configuration = configuration;
         }
 
-        internal void SendEmail(string?[] userEmail, string subject, int userId, string code)
+        public void SendEmail(string?[] userEmail, string subject, int userId, string code)
         {
             Message message = new Message(userEmail, subject, userId, code);
 

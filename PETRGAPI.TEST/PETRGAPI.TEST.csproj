@@ -29,6 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PETRGAPI.CORE\PETRGAPI.CORE.csproj" />
     <ProjectReference Include="..\petrgAPI\PETRGAPI.CORE.csproj" />
   </ItemGroup>
 

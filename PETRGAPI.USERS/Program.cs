@@ -1,3 +1,4 @@
+using Castle.Components.DictionaryAdapter.Xml;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using UsersAPI.Data;
@@ -16,7 +17,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 //DB Injection
-builder.Services.AddDbContext<UserDbContext>(opts => opts.UseSqlServer(builder.Configuration.GetConnectionString("UserConnection")));
+builder.Services.AddDbContext<UserDbContext>(opts => opts.UseSqlServer(builder.Configuration.GetConnectionString("UserConnection")), ServiceLifetime.Transient);
+
 
 //Idenity
 builder.Services.AddIdentity<IdentityUser<int>, IdentityRole<int>>(

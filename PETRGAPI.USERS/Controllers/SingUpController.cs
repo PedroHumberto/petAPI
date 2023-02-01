@@ -28,9 +28,10 @@ namespace UsersAPI.Controllers
 
             return Ok(emailToken);
         }
+
         [HttpGet("/active")]
-        public IActionResult activeteAccountRequest([FromQuery] ActiveAccountRequest request){
-            Result result = _singUpService.AccountActivation(request);
+        public async Task<IActionResult> ActiveteAccountRequest([FromQuery] ActiveAccountRequest request){
+            Result result = await _singUpService.AccountActivation(request);
             if (result.IsFailed) return StatusCode(500);
 
             return Ok(result.Successes);

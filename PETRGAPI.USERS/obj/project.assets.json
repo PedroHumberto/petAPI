@@ -5203,11 +5203,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Programming\\ASP.NET\\PETRG\\UsersAPI\\PETRGAPI.USERS.csproj",
+      "projectUniqueName": "D:\\Programming\\ASP.NET\\PETRG\\PETRGAPI.USERS\\PETRGAPI.USERS.csproj",
       "projectName": "PETRGAPI.USERS",
-      "projectPath": "D:\\Programming\\ASP.NET\\PETRG\\UsersAPI\\PETRGAPI.USERS.csproj",
+      "projectPath": "D:\\Programming\\ASP.NET\\PETRG\\PETRGAPI.USERS\\PETRGAPI.USERS.csproj",
       "packagesPath": "C:\\Users\\pedro\\.nuget\\packages\\",
-      "outputPath": "D:\\Programming\\ASP.NET\\PETRG\\UsersAPI\\obj\\",
+      "outputPath": "D:\\Programming\\ASP.NET\\PETRG\\PETRGAPI.USERS\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\pedro\\AppData\\Roaming\\NuGet\\NuGet.Config",

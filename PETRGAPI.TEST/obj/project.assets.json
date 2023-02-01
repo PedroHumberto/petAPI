@@ -10234,11 +10234,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Programming\\ASP.NET\\PETRG\\petrgAPITest\\PETRGAPI.TEST.csproj",
+      "projectUniqueName": "D:\\Programming\\ASP.NET\\PETRG\\PETRGAPI.TEST\\PETRGAPI.TEST.csproj",
       "projectName": "PETRGAPI.TEST",
-      "projectPath": "D:\\Programming\\ASP.NET\\PETRG\\petrgAPITest\\PETRGAPI.TEST.csproj",
+      "projectPath": "D:\\Programming\\ASP.NET\\PETRG\\PETRGAPI.TEST\\PETRGAPI.TEST.csproj",
       "packagesPath": "C:\\Users\\pedro\\.nuget\\packages\\",
-      "outputPath": "D:\\Programming\\ASP.NET\\PETRG\\petrgAPITest\\obj\\",
+      "outputPath": "D:\\Programming\\ASP.NET\\PETRG\\PETRGAPI.TEST\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\pedro\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -10255,6 +10255,9 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
+            "D:\\Programming\\ASP.NET\\PETRG\\PETRGAPI.CORE\\PETRGAPI.CORE.csproj": {
+              "projectPath": "D:\\Programming\\ASP.NET\\PETRG\\PETRGAPI.CORE\\PETRGAPI.CORE.csproj"
+            },
             "D:\\Programming\\ASP.NET\\PETRG\\petrgAPI\\PETRGAPI.CORE.csproj": {
               "projectPath": "D:\\Programming\\ASP.NET\\PETRG\\petrgAPI\\PETRGAPI.CORE.csproj"
             }
