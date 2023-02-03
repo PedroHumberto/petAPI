@@ -1,5 +1,6 @@
 using AutoMapper;
 using FluentResults;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using petrgAPI.Data;
@@ -36,7 +37,10 @@ public class AddressController : ControllerBase
         return Ok(allAddresses);
     }
 
+
+    
     [HttpPost]
+    [Authorize(Roles = "admin")]
     public async Task<IActionResult> AddAddress([FromBody] CreateAddressDto addressDto)
     {
         Task<ReadAddressDto> readDto =_addressService.AddAddressAsync(addressDto);  

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "NGSPuZmkvQVBYrwBZAsLwiXlbGSi+TNPTPb/B6qyIuDgJwAyaLau1rMGPFeZJg3fT5eLkV1BxTvIdelE9qW4Xg==",
+  "dgSpecHash": "Vq0wj3oZw0Rk+hKWQ1ky23zq98hKORse/KLsO+OqhjAdRnIMSeAuKxOB/hBda8cItVbjX38vKzL8SPsgX8G4YA==",
   "success": true,
   "projectFilePath": "D:\\Programming\\ASP.NET\\PETRG\\PETRGAPI.CORE\\PETRGAPI.CORE.csproj",
   "expectedPackageFiles": [
@@ -11,7 +11,10 @@
     "C:\\Users\\pedro\\.nuget\\packages\\castle.core\\5.1.0\\castle.core.5.1.0.nupkg.sha512",
     "C:\\Users\\pedro\\.nuget\\packages\\fluentresults\\3.15.1\\fluentresults.3.15.1.nupkg.sha512",
     "C:\\Users\\pedro\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\pedro\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\7.0.2\\microsoft.aspnetcore.authentication.jwtbearer.7.0.2.nupkg.sha512",
+    "C:\\Users\\pedro\\.nuget\\packages\\microsoft.aspnetcore.authorization\\7.0.2\\microsoft.aspnetcore.authorization.7.0.2.nupkg.sha512",
     "C:\\Users\\pedro\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\7.0.1\\microsoft.aspnetcore.jsonpatch.7.0.1.nupkg.sha512",
+    "C:\\Users\\pedro\\.nuget\\packages\\microsoft.aspnetcore.metadata\\7.0.2\\microsoft.aspnetcore.metadata.7.0.2.nupkg.sha512",
     "C:\\Users\\pedro\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\7.0.1\\microsoft.aspnetcore.mvc.newtonsoftjson.7.0.1.nupkg.sha512",
     "C:\\Users\\pedro\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.0\\microsoft.aspnetcore.openapi.7.0.0.nupkg.sha512",
     "C:\\Users\\pedro\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
