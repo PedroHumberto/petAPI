@@ -50,8 +50,8 @@ public class PetController : ControllerBase
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeletePet(int id)
     {
-        Task<Result> result = _petService.Delete(id);
-        if(result.GetAwaiter().GetResult().IsFailed) return NotFound();
+        Result result = await _petService.Delete(id);
+        if(result.IsFailed) return NotFound();
         return NoContent();
     }
 

@@ -83,3 +83,6 @@ D:\Programming\ASP.NET\PETRG\PETRGAPI.CORE\obj\Debug\net7.0\refint\PETRGAPI.CORE
 D:\Programming\ASP.NET\PETRG\PETRGAPI.CORE\obj\Debug\net7.0\PETRGAPI.CORE.pdb
 D:\Programming\ASP.NET\PETRG\PETRGAPI.CORE\obj\Debug\net7.0\PETRGAPI.CORE.genruntimeconfig.cache
 D:\Programming\ASP.NET\PETRG\PETRGAPI.CORE\obj\Debug\net7.0\ref\PETRGAPI.CORE.dll
+D:\Programming\ASP.NET\PETRG\PETRGAPI.CORE\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Programming\ASP.NET\PETRG\PETRGAPI.CORE\bin\Debug\net7.0\Microsoft.AspNetCore.Authorization.dll
+D:\Programming\ASP.NET\PETRG\PETRGAPI.CORE\bin\Debug\net7.0\Microsoft.AspNetCore.Metadata.dll

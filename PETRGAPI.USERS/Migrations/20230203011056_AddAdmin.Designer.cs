@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UsersAPI.Data;
 
@@ -11,9 +12,11 @@ using UsersAPI.Data;
 namespace UsersAPI.Migrations
 {
     [DbContext(typeof(UserDbContext))]
-    partial class UserDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230203011056_AddAdmin")]
+    partial class AddAdmin
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -57,12 +60,6 @@ namespace UsersAPI.Migrations
                             Id = 99999,
                             Name = "admin",
                             NormalizedName = "ADMIN"
-                        },
-                        new
-                        {
-                            Id = 99997,
-                            Name = "regular",
-                            NormalizedName = "REGULAR"
                         });
                 });
 
@@ -162,15 +159,15 @@ namespace UsersAPI.Migrations
                         {
                             Id = 99999,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ea202c36-c1b4-4900-a021-b87ff14eed65",
+                            ConcurrencyStamp = "aa66c1af-06b3-446f-a4ff-5c0585ada52e",
                             Email = "admin@admin.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEBE/FZeKAm5GBD2GvcuFogVTFX9e/eqU3plsksuDiBO8hxAMwDeezRdqJOUr21rJbg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJk8Uta+/Th/Fvfj5Er78c4y4DsNh8SsMEctNAOaK/AEuQ9E+lOxY1JQ907FPU4jxA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "068db599-a01f-4be8-a736-322edf03b6ed",
+                            SecurityStamp = "b0d0320d-a8d3-43f2-92d4-b4b813b7aa25",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         });

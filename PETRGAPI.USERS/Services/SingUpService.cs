@@ -36,7 +36,7 @@ namespace UsersAPI.Services
             IdentityResult identityResult = await _userManager
                 .CreateAsync(userIdentity, createDto.Password);
 
-            await _userManager.AddToRoleAsync(userIdentity, "admin");
+            await _userManager.AddToRoleAsync(userIdentity, "regular");
 
             var createRoleResult = _roleManager.CreateAsync(new IdentityRole<int>("admin")).Result;
 

@@ -509,3 +509,4 @@ D:\Programming\ASP.NET\PETRG\PETRGAPI.TEST\obj\Debug\net7.0\PETRGAPI.TEST.dll
 D:\Programming\ASP.NET\PETRG\PETRGAPI.TEST\obj\Debug\net7.0\refint\PETRGAPI.TEST.dll
 D:\Programming\ASP.NET\PETRG\PETRGAPI.TEST\obj\Debug\net7.0\PETRGAPI.TEST.genruntimeconfig.cache
 D:\Programming\ASP.NET\PETRG\PETRGAPI.TEST\obj\Debug\net7.0\ref\PETRGAPI.TEST.dll
+D:\Programming\ASP.NET\PETRG\PETRGAPI.TEST\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

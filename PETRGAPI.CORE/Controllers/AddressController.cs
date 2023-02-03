@@ -1,13 +1,8 @@
-using AutoMapper;
 using FluentResults;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
-using petrgAPI.Data;
 using petrgAPI.Data.Dto.AddressDto;
-using petrgAPI.Data.Dto.PetGuardianDto;
-using petrgAPI.Models;
-using petrgAPI.Services;
 using petrgAPI.Services.Interfaces;
 
 namespace petrgAPI.Controllers;
@@ -64,6 +59,7 @@ public class AddressController : ControllerBase
 
 
     [HttpDelete("{id}")]
+    [Authorize(Roles = "admin, regular")]
     public IActionResult DeleteAddress(int id)
     {
         Task<Result> result = _addressService.Delete(id);

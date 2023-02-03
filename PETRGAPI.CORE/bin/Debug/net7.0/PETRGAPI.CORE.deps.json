@@ -10,6 +10,8 @@
         "dependencies": {
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.0",
           "FluentResults": "3.15.1",
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "7.0.1",
+          "Microsoft.AspNetCore.Authorization": "7.0.2",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "7.0.1",
           "Microsoft.AspNetCore.OpenApi": "7.0.0",
           "Microsoft.EntityFrameworkCore": "7.0.1",
@@ -111,6 +113,30 @@
           }
         }
       },
+      "Microsoft.AspNetCore.Authentication.JwtBearer/7.0.1": {
+        "dependencies": {
+          "Microsoft.IdentityModel.Protocols.OpenIdConnect": "6.21.0"
+        },
+        "runtime": {
+          "lib/net7.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {
+            "assemblyVersion": "7.0.1.0",
+            "fileVersion": "7.0.122.56809"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Authorization/7.0.2": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Metadata": "7.0.2",
+          "Microsoft.Extensions.Logging.Abstractions": "7.0.0",
+          "Microsoft.Extensions.Options": "7.0.0"
+        },
+        "runtime": {
+          "lib/net7.0/Microsoft.AspNetCore.Authorization.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.222.60606"
+          }
+        }
+      },
       "Microsoft.AspNetCore.JsonPatch/7.0.1": {
         "dependencies": {
           "Microsoft.CSharp": "4.7.0",
@@ -120,6 +146,14 @@
           "lib/net7.0/Microsoft.AspNetCore.JsonPatch.dll": {
             "assemblyVersion": "7.0.1.0",
             "fileVersion": "7.0.122.56809"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Metadata/7.0.2": {
+        "runtime": {
+          "lib/net7.0/Microsoft.AspNetCore.Metadata.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.222.60606"
           }
         }
       },
@@ -838,12 +872,33 @@
       "path": "humanizer.core/2.14.1",
       "hashPath": "humanizer.core.2.14.1.nupkg.sha512"
     },
+    "Microsoft.AspNetCore.Authentication.JwtBearer/7.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-2pZZ1GQExpBV8xdRoS1RbopSXBnZBN6INA4KBb8utk6BDLzqHzfF7PCVPRS9YuPx/UHVOU8SJiPjWpcxTsvghw==",
+      "path": "microsoft.aspnetcore.authentication.jwtbearer/7.0.1",
+      "hashPath": "microsoft.aspnetcore.authentication.jwtbearer.7.0.1.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Authorization/7.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ukMX3a48GkpxeWHHeNby5kUQgsiedPVUMX1nBgswBciWczzM2G1WpRuqu2HTEaFFkMIPPhkA0pRL30d5upTTIw==",
+      "path": "microsoft.aspnetcore.authorization/7.0.2",
+      "hashPath": "microsoft.aspnetcore.authorization.7.0.2.nupkg.sha512"
+    },
     "Microsoft.AspNetCore.JsonPatch/7.0.1": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-+0+k05C640VxJVEgAQNoezveMNmgANSmJTBNHsEff8NwUlq4gKVGG3SrREuwR+0kiuMSidecfAsFrudvy/Jtqw==",
       "path": "microsoft.aspnetcore.jsonpatch/7.0.1",
       "hashPath": "microsoft.aspnetcore.jsonpatch.7.0.1.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Metadata/7.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-N/4IWVUy9GSjqT3rRHy43bXEpU5fjEuXj34/YEQdjDXdPhV+7woSsR/SkE/DVUpiU/46jW0S1hx3UHEyhEWf8A==",
+      "path": "microsoft.aspnetcore.metadata/7.0.2",
+      "hashPath": "microsoft.aspnetcore.metadata.7.0.2.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Mvc.NewtonsoftJson/7.0.1": {
       "type": "package",
