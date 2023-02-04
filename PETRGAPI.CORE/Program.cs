@@ -1,10 +1,12 @@
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using petrgAPI.Data;
 using petrgAPI.Services;
 using petrgAPI.Services.Interfaces;
+using PETRGAPI.CORE.Authorization;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,6 +21,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IAddressService, AddressService>();
 builder.Services.AddScoped<PetGuardianService, PetGuardianService>();
 builder.Services.AddScoped<IPetService, PetService>();
+builder.Services.AddSingleton<IAuthorizationHandler, MinimumAgeHandler>();
 
 
 
@@ -45,6 +48,16 @@ builder.Services.AddAuthentication(auth =>
             ClockSkew = TimeSpan.Zero
         };
     });
+
+builder.Services.AddAuthorization(opt =>
+{
+    opt.AddPolicy("MinimumAge", policy =>
+    {
+        policy.Requirements.Add(new MinimumAgeRequirement(18));
+    });
+});
+
+
 
 
 var app = builder.Build();

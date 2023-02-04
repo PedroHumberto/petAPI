@@ -1,6 +1,7 @@
 using Castle.Components.DictionaryAdapter.Xml;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using PETRGAPI.USERS.Models;
 using UsersAPI.Data;
 using UsersAPI.Services;
 
@@ -19,10 +20,9 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 //DB Injection
 builder.Services.AddDbContext<UserDbContext>(opts => opts.UseSqlServer(builder.Configuration.GetConnectionString("UserConnection")), ServiceLifetime.Transient);
 
-
 //Idenity
-builder.Services.AddIdentity<IdentityUser<int>, IdentityRole<int>>(
-        opt => opt.SignIn.RequireConfirmedEmail = true
+builder.Services.AddIdentity<CustomIdentityUser, IdentityRole<int>>(opt => 
+    opt.SignIn.RequireConfirmedEmail = true
     )
     .AddEntityFrameworkStores<UserDbContext>()
     .AddDefaultTokenProviders();

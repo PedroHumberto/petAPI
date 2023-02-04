@@ -2,9 +2,9 @@ using AutoMapper;
 using FluentResults;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using PETRGAPI.USERS.Models;
 using System.Web;
 using UsersApi.Models;
-using UsersAPI.Data;
 using UsersAPI.Data.Dto;
 using UsersAPI.Data.Requests;
 
@@ -13,34 +13,28 @@ namespace UsersAPI.Services
     public class SingUpService
     {
         private IMapper _mapper;
-        private UserManager<IdentityUser<int>> _userManager;
+        private UserManager<CustomIdentityUser> _userManager;
         private EmailService _emailService;
-        private RoleManager<IdentityRole<int>> _roleManager;
-
 
         public SingUpService(IMapper mapper, 
-            UserManager<IdentityUser<int>> userManager,
-            EmailService emailService, 
-            RoleManager<IdentityRole<int>> roleManager)
+            UserManager<CustomIdentityUser> userManager,
+            EmailService emailService
+            )
         {
             _mapper = mapper;
             _userManager = userManager;
             _emailService = emailService;
-            _roleManager = roleManager;
+            
         }
 
         public async Task<Result> SingUpUser(CreateUserDto createDto)
         {
             User user = _mapper.Map<User>(createDto);
-            IdentityUser<int> userIdentity = _mapper.Map<IdentityUser<int>>(user);
+            CustomIdentityUser userIdentity = _mapper.Map<CustomIdentityUser>(user);
             IdentityResult identityResult = await _userManager
                 .CreateAsync(userIdentity, createDto.Password);
 
             await _userManager.AddToRoleAsync(userIdentity, "regular");
-
-            var createRoleResult = _roleManager.CreateAsync(new IdentityRole<int>("admin")).Result;
-
-            
 
             if (identityResult.Succeeded)
             {

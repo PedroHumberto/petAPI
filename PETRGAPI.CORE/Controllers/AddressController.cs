@@ -59,7 +59,7 @@ public class AddressController : ControllerBase
 
 
     [HttpDelete("{id}")]
-    [Authorize(Roles = "admin, regular")]
+    [Authorize(Roles = "admin, regular", Policy = "MinimumAge")]
     public IActionResult DeleteAddress(int id)
     {
         Task<Result> result = _addressService.Delete(id);

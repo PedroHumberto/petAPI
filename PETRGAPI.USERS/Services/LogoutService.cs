@@ -1,17 +1,14 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using FluentResults;
 using Microsoft.AspNetCore.Identity;
+using PETRGAPI.USERS.Models;
 
 namespace UsersAPI.Services
 {
     public class LogoutService
     {
-        private SignInManager<IdentityUser<int>> _signInManager;
+        private SignInManager<CustomIdentityUser> _signInManager;
 
-        public LogoutService(SignInManager<IdentityUser<int>> signInManager)
+        public LogoutService(SignInManager<CustomIdentityUser> signInManager)
         {
             _signInManager = signInManager;
         }

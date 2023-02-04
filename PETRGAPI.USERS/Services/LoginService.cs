@@ -3,6 +3,7 @@ using FluentResults;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using PETRGAPI.USERS.Data.Requests;
+using PETRGAPI.USERS.Models;
 using UserAPI.Models;
 using UsersAPI.Data.Requests;
 
@@ -11,10 +12,10 @@ namespace UsersAPI.Services
 {
     public class LoginService
     {
-        private SignInManager<IdentityUser<int>> _signInManager;
+        private SignInManager<CustomIdentityUser> _signInManager;
         private TokenService _tokenService;
 
-        public LoginService(SignInManager<IdentityUser<int>> signInManager, TokenService tokenService)
+        public LoginService(SignInManager<CustomIdentityUser> signInManager, TokenService tokenService)
         {
             _signInManager = signInManager;
             _tokenService = tokenService;
@@ -59,7 +60,7 @@ namespace UsersAPI.Services
 
         public async Task<Result> ResetPasswordRequestAsync(ResetRequest request)
         {
-            IdentityUser<int> identityUser = await GetUserByEmailAsync(request.Email);
+            CustomIdentityUser identityUser = await GetUserByEmailAsync(request.Email);
 
             if (identityUser != null)
             {
@@ -72,7 +73,7 @@ namespace UsersAPI.Services
 
         public async Task<Result> ResetPasswordAsync(PasswordReset request)
         {
-            IdentityUser<int> identityUser = await GetUserByEmailAsync(request.Email);
+            CustomIdentityUser identityUser = await GetUserByEmailAsync(request.Email);
 
             IdentityResult identityResult = await _signInManager.UserManager.ResetPasswordAsync(identityUser, request.Token, request.Password);
 
@@ -81,7 +82,7 @@ namespace UsersAPI.Services
             return Result.Fail("Something Goes Wrong");
         }
 
-        private async Task<IdentityUser<int>> GetUserByEmailAsync(string email)
+        private async Task<CustomIdentityUser> GetUserByEmailAsync(string email)
         {
             return await _signInManager
                 .UserManager
